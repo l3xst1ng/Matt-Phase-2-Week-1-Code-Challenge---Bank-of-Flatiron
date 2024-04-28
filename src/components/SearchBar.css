@@ -4,3 +4,8 @@ input[type="text"] {
   margin-bottom: 20px;
   border: 1px solid #ddd;
 }
+
+input[placeholder] {
+  text-align: center;
+  font-size: 17px;
+}

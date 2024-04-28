@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TransactionTable from "./TransactionsTable";
-import AddTransactionForm from "./AddTransactionForm";
-import SearchBar from "./SearchBar";
+import TransactionsTable from "./components/TransactionsTable";
+import TransactionForm from "./components/TransactionForm";
+import SearchBar from "./components/SearchBar";
 
 const App = () => {
   const [transactions, setTransactions] = useState([
@@ -19,7 +19,6 @@ const App = () => {
       category: "Food",
       amount: -10.55,
     },
-    // Add more sample transactions
   ]);
   const [filteredTransactions, setFilteredTransactions] =
     useState(transactions);
@@ -38,10 +37,14 @@ const App = () => {
 
   return (
     <div>
-      <h1>The Royal Bank of Flatiron</h1>
-      <SearchBar onSearch={handleSearch} />
-      <TransactionTable transactions={filteredTransactions} />
-      <AddTransactionForm addTransaction={addTransaction} />
+      <div id="background-container">
+        <h1 id="header-1">The Royal Bank of Flatiron</h1>
+      </div>
+      <div>
+        <SearchBar onSearch={handleSearch} />
+        <TransactionsTable transactions={filteredTransactions} />
+        <TransactionForm addTransaction={addTransaction} />
+      </div>
     </div>
   );
 };
