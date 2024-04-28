@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TransactionTable from "./TransactionTable";
+import TransactionTable from "./TransactionsTable";
 import AddTransactionForm from "./AddTransactionForm";
 import SearchBar from "./SearchBar";
 
