@@ -1,24 +1,25 @@
-form {
+.transaction-form {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-top: 20px;
 }
 
-input,
-button {
+.transaction-form input {
   padding: 8px;
   margin-right: 10px;
-  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-button {
+.transaction-form button {
+  padding: 8px 16px;
   background-color: #775af4;
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
+.transaction-form button:hover {
   background-color: #45a049;
 }

@@ -1,39 +1,43 @@
 import React, { useState } from "react";
-import TransactionsTable from "./components/TransactionsTable";
+import TransactionTable from "./components/TransactionsTable";
 import TransactionForm from "./components/TransactionForm";
 import SearchBar from "./components/SearchBar";
+import "react-datepicker/dist/react-datepicker.css";
+import "./App.css";
 
-const App = () => {
-  const [transactions, setTransactions] = useState([
+// Defined the placeholder transactions data
+function App() {
+  const initialTransactions = [
     {
-      id: 1,
       date: "2019-12-01",
       description: "Paycheck from Bob's Burgers",
       category: "Income",
       amount: 1000,
     },
     {
-      id: 2,
       date: "2019-12-01",
       description: "South by Southwest Quinoa Bowl at Fresh & Co",
       category: "Food",
       amount: -10.55,
     },
-  ]);
-  const [filteredTransactions, setFilteredTransactions] =
-    useState(transactions);
+  ];
+  const [transactions, setTransactions] = useState([...initialTransactions]);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // Function to add a new transaction
   const addTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
-    setFilteredTransactions([...transactions, newTransaction]);
   };
 
-  const handleSearch = (searchTerm) => {
-    const filtered = transactions.filter((transaction) =>
-      transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredTransactions(filtered);
+  // Function to handle search term changes
+  const handleSearch = (term) => {
+    setSearchTerm(term);
   };
+
+  // Filter transactions based on search term using filter method
+  const filteredTransactions = transactions.filter((transaction) =>
+    transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
@@ -42,11 +46,11 @@ const App = () => {
       </div>
       <div>
         <SearchBar onSearch={handleSearch} />
-        <TransactionsTable transactions={filteredTransactions} />
-        <TransactionForm addTransaction={addTransaction} />
+        <TransactionForm onSubmit={addTransaction} />
+        <TransactionTable transactions={filteredTransactions} />
       </div>
     </div>
   );
-};
+}
 
 export default App;
