@@ -20,29 +20,30 @@ function App() {
       category: "Food",
       amount: -10.55,
     },
+
     {
       date: "2024-28-04",
       description: "Fare charges",
       category: "Transport",
-      amount: 200,
+      amount: 300,
     },
   ];
   const [transactions, setTransactions] = useState([...initialTransactions]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   // Function to add a new transaction
   const addTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
   };
 
-  // Function to handle search term changes
-  const handleSearch = (term) => {
-    setSearchTerm(term);
+  // Function to handle search input changes
+  const handleSearch = (input) => {
+    setSearchInput(input);
   };
 
-  // Filter transactions based on search term using filter method
+  // Filter transactions based on search input using filter method
   const filteredTransactions = transactions.filter((transaction) =>
-    transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+    transaction.description.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (

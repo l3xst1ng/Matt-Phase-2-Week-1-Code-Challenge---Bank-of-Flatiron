@@ -4,12 +4,12 @@ import "./SearchBar.css";
 // search transactions
 const SearchBar = ({ onSearch }) => {
   // State for search
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
-  // Function to handle search term change
+  // Function to handle search input change
 
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchInput(e.target.value);
     onSearch(e.target.value); // To call the onSearch function with the search term
   };
 
@@ -18,7 +18,7 @@ const SearchBar = ({ onSearch }) => {
       <input
         type="text"
         placeholder="Search your Recent Transactions"
-        value={searchTerm}
+        value={searchInput}
         onChange={handleSearch}
       />
     </div>
