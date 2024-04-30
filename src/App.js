@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TransactionTable from "./components/TransactionsTable";
 import TransactionForm from "./components/TransactionForm";
 import SearchBar from "./components/SearchBar";
-import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css"; //component to enable date selection via calendar
 import "./App.css";
 
 // Defined the placeholder transactions data
@@ -19,6 +19,12 @@ function App() {
       description: "South by Southwest Quinoa Bowl at Fresh & Co",
       category: "Food",
       amount: -10.55,
+    },
+    {
+      date: "2024-28-04",
+      description: "Fare charges",
+      category: "Transport",
+      amount: 200,
     },
   ];
   const [transactions, setTransactions] = useState([...initialTransactions]);
